@@ -1,145 +1,101 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-      <h1 style="font-size: 1.3rem;font-weight: bold; text-align: left; margin-left: 0;  letter-spacing: 0.5rem;">Agenda Fácil</h1>
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" style="display: flex; align-items: center; padding: 0 15px;">
+      <!-- Ícone Grande -->
+      <i class="mdi mdi-calendar-month" style="font-size: 3rem; color: #ffffff; margin-right: 15px; margin-top: 25px"></i>
+      <!-- Título -->
+      <h1 style="font-size: 1.3rem; font-weight: bold; text-align: left; margin: 0; letter-spacing: 0.5rem; margin-top: 16px">Agenda Fácil</h1>
+      <!-- Logo Mini -->
       <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="/resources/images/a_f.jpg" alt="logo" /></a>
-  </div>
-  <ul class="nav">
-      <li class="nav-item profile">
-          <div class="profile-desc">
-              <div class="profile-pic">
-                  <div class="count-indicator">
-                      <img class="img-xs rounded-circle " src="/resources/images/peterson.png" alt="">
-                      <span class="count bg-success"></span>
-                  </div>
-                  <div class="profile-name">
-                      <h5 class="mb-0 font-weight-normal">Pepo Oenning</h5>
-                  </div>
-              </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
-              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                  <a href="#" class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                          <div class="preview-icon bg-dark rounded-circle">
-                              <i class="mdi mdi-settings text-primary"></i>
-                          </div>
-                      </div>
-                      <div class="preview-item-content">
-                          <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
-                      </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                          <div class="preview-icon bg-dark rounded-circle">
-                              <i class="mdi mdi-onepassword  text-info"></i>
-                          </div>
-                      </div>
-                      <div class="preview-item-content">
-                          <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
-                      </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item preview-item">
-                      <div class="preview-thumbnail">
-                          <div class="preview-icon bg-dark rounded-circle">
-                              <i class="mdi mdi-calendar-today text-success"></i>
-                          </div>
-                      </div>
-                      <div class="preview-item-content">
-                          <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </li>
+    </div>
+    <ul class="nav">
       <li class="nav-item nav-category">
-          <span class="nav-link">Menu</span>
+        <span class="nav-link">Menu</span>
       </li>
       
       <li class="nav-item menu-items">
-          <a class="nav-link" data-toggle="collapse" href="#servico" aria-expanded="false" aria-controls="servico">
-              <span class="menu-icon">
-                <i class="mdi mdi-account-supervisor-circle"></i>
-              </span>
-              <span class="menu-title">Serviço</span>
-              <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="servico">
-              <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="/cadastro servico">Cadastrar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/consulta_servico">Consultar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/relatorio_servico">Emitir Relatório</a></li>
-              </ul>
-          </div>
+        <a class="nav-link" data-toggle="collapse" href="#servico" aria-expanded="false" aria-controls="servico">
+          <span class="menu-icon">
+            <i class="mdi mdi-account-supervisor-circle"></i>
+          </span>
+          <span class="menu-title">Serviço</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="servico">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="/cadastro_servico">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/consulta_servico">Consultar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/relatorio_servico">Emitir Relatório</a></li>
+          </ul>
+        </div>
       </li>
-
+  
       <li class="nav-item menu-items">
-          <a class="nav-link" data-toggle="collapse" href="#horario" aria-expanded="false" aria-controls="horario">
-              <span class="menu-icon">
-                  <i class="mdi mdi-clock-time-four-outline"></i>
-              </span>
-              <span class="menu-title">Horário</span>
-              <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="horario">
-              <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
-              </ul>
-          </div>
+        <a class="nav-link" data-toggle="collapse" href="#horario" aria-expanded="false" aria-controls="horario">
+          <span class="menu-icon">
+            <i class="mdi mdi-clock-time-four-outline"></i>
+          </span>
+          <span class="menu-title">Horário</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="horario">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
+          </ul>
+        </div>
       </li>
-
+  
       <li class="nav-item menu-items">
-          <a class="nav-link" data-toggle="collapse" href="#funcionario" aria-expanded="false" aria-controls="funcionario">
-              <span class="menu-icon">
-                  <i class="mdi mdi-briefcase-account"></i>
-              </span>
-              <span class="menu-title">Funcionário</span>
-              <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="funcionario">
-              <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
-              </ul>
-          </div>
+        <a class="nav-link" data-toggle="collapse" href="#funcionario" aria-expanded="false" aria-controls="funcionario">
+          <span class="menu-icon">
+            <i class="mdi mdi-briefcase-account"></i>
+          </span>
+          <span class="menu-title">Funcionário</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="funcionario">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
+          </ul>
+        </div>
       </li>
-
+  
       <li class="nav-item menu-items">
-          <a class="nav-link" data-toggle="collapse" href="#ordem" aria-expanded="false" aria-controls="ordem">
-              <span class="menu-icon">
-                  <i class="mdi mdi-note-edit-outline"></i>
-              </span>
-              <span class="menu-title">Ordem de Serviço</span>
-              <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ordem">
-              <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
-              </ul>
-          </div>
+        <a class="nav-link" data-toggle="collapse" href="#ordem" aria-expanded="false" aria-controls="ordem">
+          <span class="menu-icon">
+            <i class="mdi mdi-note-edit-outline"></i>
+          </span>
+          <span class="menu-title">Ordem de Serviço</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ordem">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
+          </ul>
+        </div>
       </li>
-
+  
       <li class="nav-item menu-items">
-          <a class="nav-link" data-toggle="collapse" href="#cliente" aria-expanded="false" aria-controls="cliente">
-              <span class="menu-icon">
-                  <i class="mdi mdi-account"></i>
-              </span>
-              <span class="menu-title">Cliente</span>
-              <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="cliente">
-              <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
-              </ul>
-          </div>
+        <a class="nav-link" data-toggle="collapse" href="#cliente" aria-expanded="false" aria-controls="cliente">
+          <span class="menu-icon">
+            <i class="mdi mdi-account"></i>
+          </span>
+          <span class="menu-title">Cliente</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="cliente">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Consultar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Emitir Relatório</a></li>
+          </ul>
+        </div>
       </li>
-  </ul>
-
-</nav>
+    </ul>
+  </nav>
+  
