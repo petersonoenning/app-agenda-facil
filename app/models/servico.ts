@@ -1,22 +1,22 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export default class Servico extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  declare id: number
 
   @column()
-  public nome: string
+  declare nome: string
 
   @column()
-  public descricao: string
+  declare descricao: string
 
   @column()
-  public valor: number
+  declare valor: number
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  declare updatedAt: DateTime
 }
