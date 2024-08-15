@@ -1,4 +1,6 @@
 import router from '@adonisjs/core/services/router'
+import ServicosController from '#controllers/servico_controller'
+
 
 // Renders
 router.on('/').render('components/layout/index')
@@ -26,6 +28,5 @@ router.on('/cadastrocliente').render('components/layout/cliente/cadastro_cliente
 router.on('/consultacliente').render('components/layout/cliente/consulta_cliente')
 router.on('/relatoriocliente').render('components/layout/cliente/relatorio_cliente')
 
-// API
-router.post('/api/servicos', 'ServicosController.store')
-router.get('/api/servicos', 'ServicosController.index')
+
+router.resource('servicos', ServicosController)
