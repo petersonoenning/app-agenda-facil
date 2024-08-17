@@ -9,14 +9,14 @@ export default class ServicosController {
   async index({ view }: HttpContext) {
     const servicos = await Servico.all()
 
-    return view.render('components/layout/servico/cadastro_servico', { servicos })
+    return view.render('pages/servico/cadastro_servico', { servicos })
   }
 
   /**
    * Display form to create a new record
    */
   async create({ view }: HttpContext) {
-    return view.render('components/layout/servico/cadastro_servico')
+    return view.render('pages/servico/cadastro_servico')
   }
 
   /**
@@ -57,7 +57,7 @@ export default class ServicosController {
   async edit({ params, view }: HttpContext) {
     const servico = await Servico.find(params.id)
 
-    return view.render('components/layout/servico/cadastro_servico', { servico })
+    return view.render('pages/servico/cadastro_servico', { servico })
   }
 
   /**
