@@ -6,7 +6,7 @@ export default class ServicosController {
   /**
    * Display a list of resource
    */
-  async index({ view }: HttpContext) {
+   async index({ view }: HttpContext) {
     const servicos = await Servico.all()
 
     return view.render('pages/servico/consulta_servico', { servicos })

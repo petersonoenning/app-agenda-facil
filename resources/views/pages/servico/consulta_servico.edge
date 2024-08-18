@@ -28,15 +28,15 @@
         </div>
         @end
 
+        @if(!servicos.length)
+        <div class="alert alert-secondary">
+          <i class="mdi mdi-alert-box icon-md"></i> Nenhum veículo encontrado na base de dados!
+        </div>
+        @end
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                @if(!servicos || servicos.length === 0)
-                <div class="alert alert-secondary">
-                  <i class="mdi mdi-alert-box icon-md"></i> Nenhum serviço encontrado na base de dados!
-                </div>
-                @else
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -54,27 +54,13 @@
                         <td>{{ index + 1 }}</td>
                         <td>{{ servico.nome }}</td>
                         <td>{{ servico.descricao }}</td>
-                        <td>R$ {{ number_format(servico.valor, 2, ',', '.') }}</td>
-                        <td style="display: flex;">
-                          <a href="{{ route('servicos.edit', [servico.id]) }}" class="btn btn-warning btn-sm mr-1">
-                            Editar
-                          </a>
-
-                          <form id="form-delete-{{ servico.id }}" method="POST"
-                            action="{{ route('servicos.destroy', { id: servico.id }, { qs: { _method: 'DELETE' } }) }}">
-                            {{ csrfField() }}
-
-                            <a href="#" onclick="event.preventDefault(); document.getElementById('form-delete-{{ servico.id }}').submit();">
-                              <i class="mdi mdi-delete-variant"></i>
-                            </a>
-                          </form>
-                        </td>
+                        <td>{{ servico.valor }}</td>
                       </tr>
                       @end
                     </tbody>
                   </table>
                 </div>
-                @endif
+                
               </div>
             </div>
           </div>
