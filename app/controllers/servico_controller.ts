@@ -9,7 +9,7 @@ export default class ServicosController {
    async index({ view }: HttpContext) {
     const servicos = await Servico.all()
 
-    return view.render('pages/servico/consulta_servico', { servicos })
+    return view.render('servicos.index', { servicos })
   }
 
   /**
@@ -49,7 +49,7 @@ export default class ServicosController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) { }
+  async show({ params }: HttpContext) {}
 
   /**
    * Edit individual record
