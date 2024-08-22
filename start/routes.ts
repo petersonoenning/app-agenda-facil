@@ -1,13 +1,15 @@
 import router from '@adonisjs/core/services/router'
+import ServicosController from '#controllers/servico_controller'
 // import ServicosController from '#controllers/servico_controller'
 
-const ServicosController = () => import('#controllers/servico_controller')
-router.resource('servicos', ServicosController)
+//const ServicosController = () => import('#controllers/servico_controller')
+//router.resource('servicos', ServicosController)
 
 // // Renders
  router.on('/').render('components/layout/index')
 //  router.on('/cadastroservico').render('pages/servico/cadastro_servico')
-router.on('/consultaservico').render('pages/servico/consulta_servico')
+//router.on('/consultaservico').render('pages/servico/consulta_servico')
+router.resource('servicos', ServicosController)
 // router.on('/relatorioservico').render('pages/servico/relatorio_servico')
 
 // // Horário

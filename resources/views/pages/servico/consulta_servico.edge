@@ -1,3 +1,6 @@
+
+  
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -45,12 +48,12 @@
                     </thead>
                    
                     <tbody>
-                      @each((servico, index) in servicos)
+                      @each(item in servicos)
                       <tr>
-                        <td>{{ index + 1 }}</td>
-                        <td>{{ servico.nome }}</td>
-                        <td>{{ servico.descricao }}</td>
-                        <td>{{ servico.valor }}</td>
+                        
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.descricao }}</td>
+                        <td>{{ item.valor }}</td>
                       </tr>
                       @end
                     </tbody>
