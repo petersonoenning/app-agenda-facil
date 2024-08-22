@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       
       table.string('nome', 45).notNullable()
       table.string('descricao', 200).notNullable()
-      table.decimal('valor').notNullable()
+      table.decimal('valor', 10, 2).notNullable() // 10 dígitos com duas casas decimais no campo de valor
 
       table.timestamp('created_at')
       table.timestamp('updated_at')
