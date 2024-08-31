@@ -9,7 +9,7 @@ body {
   width: 100%;
 }
 
-.table thead th {
+.table-header{
   font-weight: bold; /* coloca a fonte como negrito*/
   color: green; /* Define a cor do texto como verde */
 }
@@ -47,7 +47,6 @@ body {
 .btn-action-green:hover i {
   color: green; /* Cor dos ícones ao passar o mouse */
 }
-
 
 /*-------------------------------------------------------------------
   ===== Table of Contents =====
