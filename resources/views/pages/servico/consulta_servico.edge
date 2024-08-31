@@ -44,10 +44,10 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Opções</th>
+                        <th style="font-weight: bold; color: green;">Nome</th>
+                        <th style="font-weight: bold; color: green;">Descrição</th>
+                        <th style="font-weight: bold; color: green;">Valor</th>
+                        <th style="font-weight: bold; color: green;">Opções</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,7 @@
                         <td>{{ item.descricao }}</td>
                         <td>{{ item.valor }}</td>
                         <td style="display: flex;">
-                          <a href="{{ route('servicos.edit', [item.id]) }}" class="button mr-1">
+                          <a href="{{ route('servicos.edit', [item.id]) }}" class="btn-action-green mr-1">
                             <i class="mdi mdi-border-color"></i>
                           </a>
                           <form id="form-delete-{{ item.id }}" method="POST"
@@ -65,7 +65,7 @@
                               route('servicos.destroy', { id: item.id }, { qs: { _method: 'DELETE' } })
                             }}">
                             {{ csrfField() }}
-                            <a href="#" onclick="document.getElementById('form-delete-{{item.id}}').submit();">
+                            <a href="#" onclick="document.getElementById('form-delete-{{item.id}}').submit();" class="btn-action-green mr-1">
                               <i class="mdi mdi-delete-variant"></i>
                             </a>
                           </form>

@@ -9,6 +9,45 @@ body {
   width: 100%;
 }
 
+.table thead th {
+  font-weight: bold; /* coloca a fonte como negrito*/
+  color: green; /* Define a cor do texto como verde */
+}
+
+/* Para os botões */
+.btn-action-green {
+  background-color: transparent; /* Fundo transparente */
+  color: white; /* Cor do texto branco */
+  border: 2px solid white; /* Borda branca */
+  padding: 8px 16px; /* Espaçamento interno */
+  text-decoration: none; /* Remove o sublinhado */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Transição suave */
+  display: inline-flex; /* Usa flexbox para alinhamento interno */
+  align-items: center; /* Alinha ícones verticalmente */
+  justify-content: center; /* Centraliza o conteúdo */
+  height: 40px; /* Define uma altura fixa */
+  width: 40px; /* Define uma largura fixa */
+  border-radius: 25%; /* Arredonda o botão para um formato circular */
+}
+
+.btn-action-green:hover {
+  transform: scale(1.1); /* Expande o botão em 10% */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil */
+  background-color: rgba(255, 255, 255, 0.1); /* Adiciona um fundo branco semi-transparente ao passar o mouse */
+}
+
+/* Estilo dos ícones dentro dos botões */
+.btn-action-green i {
+  font-size: 20px; /* Define o tamanho dos ícones */
+  color: white; /* Cor dos ícones padrão */
+  transition: color 0.2s ease; /* Transição suave para a cor dos ícones */
+}
+
+/* Estilo dos ícones ao passar o mouse */
+.btn-action-green:hover i {
+  color: green; /* Cor dos ícones ao passar o mouse */
+}
+
 
 /*-------------------------------------------------------------------
   ===== Table of Contents =====
