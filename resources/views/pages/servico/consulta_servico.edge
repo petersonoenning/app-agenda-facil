@@ -1,6 +1,3 @@
-
-  
-
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -23,6 +20,7 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="page-header">
           <h3 class="page-title">Serviços</h3>
+          <a class="btn btn-primary btn-fw" href="{{ route('servicos.create') }}">+ Criar Serviço</a>
         </div>
 
         @flashMessage('notificacao')
@@ -31,11 +29,17 @@
         </div>
         @end
 
-        
         <div class="row">
           <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
+                
+                @if(!servicos.length)
+                <div class="alert alert-secondary">
+                  <i class="mdi mdi-alert-box icon-md"></i> Nenhum serviço encontrado na base de dados!
+                </div>
+                @end
+                @if(servicos.length)
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -43,22 +47,35 @@
                         <th>Nome</th>
                         <th>Descrição</th>
                         <th>Valor</th>
+                        <th>Opções</th>
                       </tr>
                     </thead>
-                   
                     <tbody>
-                      @each(item in servicos)
+                      @each((item, index) in servicos)
                       <tr>
-                        
                         <td>{{ item.nome }}</td>
                         <td>{{ item.descricao }}</td>
                         <td>{{ item.valor }}</td>
+                        <td style="display: flex;">
+                          <a href="{{ route('servicos.edit', [item.id]) }}" class="button mr-1">
+                            <i class="mdi mdi-border-color"></i>
+                          </a>
+                          <form id="form-delete-{{ item.id }}" method="POST"
+                            action="{{
+                              route('servicos.destroy', { id: item.id }, { qs: { _method: 'DELETE' } })
+                            }}">
+                            {{ csrfField() }}
+                            <a href="#" onclick="document.getElementById('form-delete-{{item.id}}').submit();">
+                              <i class="mdi mdi-delete-variant"></i>
+                            </a>
+                          </form>
+                        </td>
                       </tr>
                       @end
                     </tbody>
                   </table>
                 </div>
-                
+                @end
               </div>
             </div>
           </div>
