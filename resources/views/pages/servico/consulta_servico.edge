@@ -18,9 +18,8 @@
     <div class="row">
       @include('partials/_sidebar')
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="page-header">
-          <h3 class="page-title">Serviços</h3>
-          <a class="btn btn-primary btn-fw" href="{{ route('servicos.create') }}">+ Criar Serviço</a>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Consulta de Serviços</h1>
         </div>
 
         @flashMessage('notificacao')
@@ -80,6 +79,7 @@
             </div>
           </div>
         </div>
+        <a href="{{ route('servicos.create') }}" class="btn btn-primary">Cadastrar Novo Serviço</a>
       </main>
     </div>
   </div>
