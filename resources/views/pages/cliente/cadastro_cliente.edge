@@ -18,10 +18,9 @@
     <div class="row">
       @include('partials/_sidebar')
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Cadastro de Cliente</h1>
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         </div>
-
         @flashMessage('notificacao')
         <div class="alert alert-{{ $message.type }}">
           {{ $message.message }}
@@ -30,6 +29,7 @@
 
         <div class="card">
           <div class="card-body">
+            <h1 class="h2">Cadastro de Cliente</h1>
             <form class="forms-sample" method="POST"
               action="{{ !cliente ? route('clientes.store') : route('clientes.update', { id: cliente.id }, { qs: { _method: 'PUT' } }) }}">
               {{ csrfField() }}
@@ -37,7 +37,7 @@
               <div class="form-group">
                 <label for="inputNome">Nome</label>
                 <input type="text" class="form-control" id="inputNome" value="{{ old('nome') || cliente?.nome ||'' }}"
-                  name="nome" placeholder="Informe o nome" required>
+                  name="nome" placeholder="Informe o nome">
                 @inputError('nome')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
@@ -47,7 +47,7 @@
                 <label for="inputTelefone">Telefone</label>
                 <input type="text" class="form-control" id="inputTelefone"
                   value="{{ old('telefone') || cliente?.telefone ||'' }}" name="telefone"
-                  placeholder="Informe o telefone" required>
+                  placeholder="Informe o telefone">
                 @inputError('telefone')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
@@ -55,8 +55,8 @@
 
               <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" name="email"
-                  value="{{ old('email') || cliente?.email || '' }}" placeholder="Informe o email" required>
+                <input type="email" class="form-control" id="inputEmail" value="{{ old('email') || cliente?.email ||'' }}"
+                  name="email" placeholder="Informe o email">
                 @inputError('email')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
@@ -65,14 +65,14 @@
               <div class="form-group">
                 <label for="inputIdade">Idade</label>
                 <input type="number" class="form-control" id="inputIdade" name="idade"
-                  value="{{ old('idade') || cliente?.idade || '' }}" placeholder="Informe a idade" required>
+                  value="{{ old('idade') || cliente?.idade || '' }}" placeholder="Informe a idade">
                 @inputError('idade')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
               </div>
 
               <button type="submit" class="btn btn-primary mr-2">Salvar</button>
-              <a href="{{ route('clientes.index') }}" class="btn btn-dark">Cancelar</a>
+              <button class="btn btn-dark" type="button" onclick="window.history.back()">Cancelar</button>
             </form>
           </div>
         </div>
@@ -80,33 +80,19 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#cliente-form').on('submit', function (e) {
-        e.preventDefault();
-        const data = {
-          nome: $('#inputNome').val(),
-          telefone: $('#inputTelefone').val(),
-          email: $('#inputEmail').val(),
-          idade: $('#inputIdade').val(),
-        };
-
-        $.ajax({
-          url: '/api/clientes',
-          type: 'POST',
-          data: data,
-          success: function (response) {
-            alert('Cliente cadastrado com sucesso!');
-            $('#cliente-form')[0].reset();
-          },
-          error: function (xhr) {
-            alert('Erro ao cadastrar cliente: ' + xhr.responseText);
-          }
-        });
-      });
-    });
-  </script>
+  <!-- scripts moved to end of body for better loading -->
+  <script src="/resources/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/resources/vendors/chart.js/Chart.min.js"></script>
+  <script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/resources/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/resources/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/resources/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <script src="/resources/js/off-canvas.js"></script>
+  <script src="/resources/js/hoverable-collapse.js"></script>
+  <script src="/resources/js/misc.js"></script>
+  <script src="/resources/js/settings.js"></script>
+  <script src="/resources/js/todolist.js"></script>
+  <script src="/resources/js/dashboard.js"></script>
 </body>
 
 </html>
