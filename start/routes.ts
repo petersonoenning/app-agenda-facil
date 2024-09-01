@@ -1,4 +1,5 @@
 import router from '@adonisjs/core/services/router'
+import ClientesController from '#controllers/cliente_controller'
 import ServicosController from '#controllers/servico_controller'
 // import ServicosController from '#controllers/servico_controller'
 
@@ -10,6 +11,7 @@ import ServicosController from '#controllers/servico_controller'
 //  router.on('/cadastroservico').render('pages/servico/cadastro_servico')
 //router.on('/consultaservico').render('pages/servico/consulta_servico')
 router.resource('servicos', ServicosController)
+router.resource('clientes', ClientesController)
 // router.on('/relatorioservico').render('pages/servico/relatorio_servico')
 
 // // Horário

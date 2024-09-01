@@ -1,4 +1,4 @@
-import Servico from '#models/servico'
+import Servico from '#models//servico'
 import { createServicoValidator, messagesServicoProvider } from '#validators/servico'
 import type { HttpContext } from '@adonisjs/core/http'
 
