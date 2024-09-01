@@ -50,11 +50,21 @@
                   <td>{{ cliente.email }}</td>
                   <td>{{ cliente.idade }}</td>
                   <td>
-                    <a href="{{ route('clientes.edit', { id: cliente.id }) }}" class="btn btn-warning btn-sm">Editar</a>
-                    <form action="{{ route('clientes.destroy', { id: cliente.id }) }}" method="POST" style="display:inline;">
-                      {{ csrfField() }}
-                      <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                    </form>
+                    <td style="display: flex;">
+                      <a href="{{ route('clientes.edit', [cliente.id]) }}" class="btn-action-green mr-1">
+                        <i class="mdi mdi-border-color"></i>
+                      </a>
+                      <form id="form-delete-{{ cliente.id }}" method="POST"
+                        action="{{
+                          route('clientes.destroy', { id: cliente.id }, { qs: { _method: 'DELETE' } })
+                        }}">
+                        {{ csrfField() }}
+                        <a href="#" onclick="document.getElementById('form-delete-{{cliente.id}}').submit();" class="btn-action-green mr-1">
+                          <i class="mdi mdi-delete-variant"></i>
+                        </a>
+                      </form>
+                    </td>
+                    
                   </td>
                 </tr>
                 @endeach
