@@ -9,11 +9,6 @@ body {
   width: 100%;
 }
 
-.table-header{
-  font-weight: bold; /* coloca a fonte como negrito*/
-  color: green; /* Define a cor do texto como verde */
-}
-
 /* Para os botões */
 .btn-action-green {
   background-color: transparent; /* Fundo transparente */

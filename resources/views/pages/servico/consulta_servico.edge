@@ -17,7 +17,7 @@
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <main role="main" class="">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Consulta de Serviços</h1>
         </div>
@@ -42,16 +42,18 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
-                      <tr class="table-header">
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Opções</th>
+                      <tr>
+                        <th class="font-weight-bold text-success">Id</th>
+                        <th class="font-weight-bold text-success">Nome</th>
+                        <th class="font-weight-bold text-success">Descrição</th>
+                        <th class="font-weight-bold text-success">Valor</th>
+                        <th class="font-weight-bold text-success">Opções</th>
                       </tr>
                     </thead>
                     <tbody>
                       @each((item, index) in servicos)
                       <tr>
+                        <td>{{ item.id }}</td>
                         <td>{{ item.nome }}</td>
                         <td>{{ item.descricao }}</td>
                         <td>{{ item.valor }}</td>

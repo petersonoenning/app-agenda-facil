@@ -33,6 +33,7 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
+                      <th>Id</th>
                       <th>Nome</th>
                       <th>Telefone</th>
                       <th>Email</th>
@@ -42,6 +43,7 @@
                   <tbody>
                     @each(cliente in clientes)
                     <tr>
+                      <td>{{ cliente.id }}</td>
                       <td>{{ cliente.nome }}</td>
                       <td>{{ cliente.telefone }}</td>
                       <td>{{ cliente.email }}</td>
