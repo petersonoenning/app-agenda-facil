@@ -2,68 +2,90 @@
 <html lang="PT-BR">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Corona Admin</title>
-  <!-- plugins:css -->
+  <title>Consulta de Funcionário</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/resources/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="/resources/vendors/jvectormap/jquery-jvectormap.css">
-  <link rel="stylesheet" href="/resources/vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.carousel.min.css">
-  <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.theme.default.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
-  <!-- Layout styles -->
   <link rel="stylesheet" href="/resources/css/app.css">
-  <!-- End layout styles -->
   <link rel="shortcut icon" href="/resources/images/favicon.png" />
 </head>
 
 <body>
   @include('partials/_navbar')
-  
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
+        @flashMessage('notificacao')
+        <div class="alert alert-{{ $message.type }}">
+          {{ $message.message }}
         </div>
-
-        <h3>pagina de cadastro</h3>
-       
+        @end
+        <div class="row">
+          <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="pt-0">Consultar Funcionário</h1>
+                @if(!funcionarios.length)
+                <div class="alert alert-secondary">
+                  <i class="mdi mdi-alert-box icon-md"></i> Nenhum funcionário encontrado na base de dados!
+                </div>
+                @end
+                @if(funcionarios.length)
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="font-weight-bold text-success">Id</th>
+                        <th class="font-weight-bold text-success">Nome</th>
+                        <th class="font-weight-bold text-success">Função</th>
+                        <th class="font-weight-bold text-success">Opções</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @each((item, index) in funcionarios)
+                      <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.funcao }}</td>
+                        <td style="display: flex;">
+                          <a href="{{ route('funcionarios.edit', [item.id]) }}" class="btn-action-green mr-1">
+                            <i class="mdi mdi-border-color"></i>
+                          </a>
+                          <form id="form-delete-{{ item.id }}" method="POST"
+                            action="{{
+                              route('funcionarios.destroy', { id: item.id }, { qs: { _method: 'DELETE' } })
+                            }}">
+                            {{ csrfField() }}
+                            <a href="#" onclick="document.getElementById('form-delete-{{item.id}}').submit();" class="btn-action-green mr-1">
+                              <i class="mdi mdi-delete-variant"></i>
+                            </a>
+                          </form>
+                        </td>
+                      </tr>
+                      @end
+                    </tbody>
+                  </table>
+                </div>
+                @end
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="{{ route('funcionarios.create') }}" class="btn btn-primary">Cadastrar Novo Funcionário</a>
       </main>
     </div>
   </div>
 
-  <!-- container-scroller -->
-  <!-- plugins:js -->
   <script src="/resources/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="/resources/vendors/chart.js/Chart.min.js"></script>
-  <script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
-  <script src="/resources/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-  <script src="/resources/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <script src="/resources/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
   <script src="/resources/js/off-canvas.js"></script>
   <script src="/resources/js/hoverable-collapse.js"></script>
   <script src="/resources/js/misc.js"></script>
   <script src="/resources/js/settings.js"></script>
   <script src="/resources/js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="/resources/js/dashboard.js"></script>
-  <!-- End custom js for this page -->
-
 </body>
+
 </html>

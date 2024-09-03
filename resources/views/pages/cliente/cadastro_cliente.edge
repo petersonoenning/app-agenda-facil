@@ -18,8 +18,7 @@
     <div class="row">
       @include('partials/_sidebar')
       <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         </div>
         @flashMessage('notificacao')
         <div class="alert alert-{{ $message.type }}">
@@ -30,7 +29,7 @@
         <div class="card">
           <div class="card-body">
             <h1 class="pt-0">Cadastro de Cliente</h1>
-            <form class="forms-sample" method="POST"
+            <form id="form-cliente" class="forms-sample" method="POST"
               action="{{ !cliente ? route('clientes.store') : route('clientes.update', { id: cliente.id }, { qs: { _method: 'PUT' } }) }}">
               {{ csrfField() }}
 
@@ -72,7 +71,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary mr-2">Salvar</button>
-              <button class="btn btn-dark" type="button" onclick="window.history.back()">Cancelar</button>
+              <button class="btn btn-dark" type="button" onclick="resetForm()">Cancelar</button>
             </form>
           </div>
         </div>
@@ -80,7 +79,6 @@
     </div>
   </div>
 
- 
   <script src="/resources/vendors/js/vendor.bundle.base.js"></script>
   <script src="/resources/vendors/chart.js/Chart.min.js"></script>
   <script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
@@ -93,6 +91,11 @@
   <script src="/resources/js/settings.js"></script>
   <script src="/resources/js/todolist.js"></script>
   <script src="/resources/js/dashboard.js"></script>
+  <script>
+    function resetForm() {
+      document.getElementById('form-cliente').reset();
+    }
+  </script>
 </body>
 
 </html>

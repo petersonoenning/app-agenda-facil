@@ -12,38 +12,13 @@
   <link rel="shortcut icon" href="/resources/images/favicon.png" />
 </head>
 
-<!-- Coloquei para fazer manter a navegação no menu lateral mesmo depois de acessar está pagina -->
-<!-- container-scroller -->
-<!-- plugins:js -->
-<script src="/resources/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="/resources/vendors/chart.js/Chart.min.js"></script>
-<script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
-<script src="/resources/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-<script src="/resources/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/resources/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="/resources/js/off-canvas.js"></script>
-<script src="/resources/js/hoverable-collapse.js"></script>
-<script src="/resources/js/misc.js"></script>
-<script src="/resources/js/settings.js"></script>
-<script src="/resources/js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="/resources/js/dashboard.js"></script>
-<!-- End custom js for this page -->
-
 <body>
   @include('partials/_navbar')
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px"> <!--Style adicionado para dar o espaço da mensagem de notificação-->
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         </div>
         @flashMessage('notificacao')
         <div class="alert alert-{{ $message.type }}">
@@ -52,92 +27,64 @@
         @end
 
         <div class="card">
-
           <div class="card-body">
-            <h1 class="pt-0">Cadastrar Serviço</h1> <!--Alterei o valor de pt, para diminuir espaçamento (antigo: pt-4)-->
-            <form class="forms-sample" method="POST"
+            <h1 class="pt-0">Cadastrar Serviço</h1>
+            <form id="form-servico" class="forms-sample" method="POST"
               action="{{ !servico ? route('servicos.store') : route('servicos.update', { id: servico.id }, { qs: { _method: 'PUT' } }) }}">
-
               {{ csrfField() }}
 
               <div class="form-group">
                 <label for="inputNome">Nome</label>
                 <input type="text" class="form-control" id="inputNome" value="{{ old('nome') || servico?.nome ||'' }}"
                   name="nome" placeholder="Informe o nome">
-
                 @inputError('nome')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
-
               </div>
+
               <div class="form-group">
                 <label for="inputDescricao">Descrição</label>
                 <input type="text" class="form-control" id="inputDescricao"
                   value="{{ old('descricao') || servico?.descricao ||'' }}" name="descricao"
                   placeholder="Informe a descrição.">
               </div>
-              {{-- <div class="form-group">
-                <label for="exampleInputPassword4">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-              </div> --}}
 
               <div class="form-group">
                 <label for="inputValor">Valor</label>
                 <input type="decimal" class="form-control" id="inputValor" name="valor"
                   value="{{ old('valor') || servico?.valor || '' }}" placeholder="Informe o valor:">
-
                 @inputError('valor')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
                 @end
-
               </div>
 
-
               <button type="submit" class="btn btn-primary mr-2">Salvar</button>
-              <button class="btn btn-dark">Cancelar</button>
+              <button class="btn btn-dark" type="button" onclick="resetForm()">Cancelar</button>
             </form>
-
+          </div>
+        </div>
       </main>
     </div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
-    $(document).ready(function () {
-      fetchServices();
-
-      $('#service-form').on('submit', function (e) {
-        e.preventDefault();
-        const data = {
-          nome: $('#nome').val(),
-          descricao: $('#descricao').val(),
-          valor: $('#valor').val()
-        };
-
-        $.ajax({
-          url: '/api/servicos',
-          type: 'POST',
-          data: data,
-          success: function (response) {
-            alert('Serviço cadastrado com sucesso!');
-            $('#service-form')[0].reset();
-            fetchServices();
-          },
-          error: function (xhr) {
-            alert('Erro ao cadastrar serviço: ' + xhr.responseText);
-          }
-        });
-      });
-
-      function fetchServices() {
-        $.get('/api/servicos', function (data) {
-          $('#service-list').empty();
-          data.forEach(service => {
-            $('#service-list').append(`<li class="list-group-item">${service.nome} - ${service.descricao} - R$${service.valor}</li>`);
-          });
-        });
-      }
-    });
+    function resetForm() {
+      document.getElementById('form-servico').reset();
+    }
   </script>
+  <script src="/resources/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/resources/vendors/chart.js/Chart.min.js"></script>
+  <script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/resources/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/resources/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/resources/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <script src="/resources/js/off-canvas.js"></script>
+  <script src="/resources/js/hoverable-collapse.js"></script>
+  <script src="/resources/js/misc.js"></script>
+  <script src="/resources/js/settings.js"></script>
+  <script src="/resources/js/todolist.js"></script>
+  <script src="/resources/js/dashboard.js"></script>
 </body>
 
 </html>

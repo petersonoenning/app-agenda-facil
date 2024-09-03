@@ -2,26 +2,13 @@
 <html lang="PT-BR">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Corona Admin</title>
-  <!-- plugins:css -->
+  <title>Cadastro de Funcionário</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/resources/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="/resources/vendors/jvectormap/jquery-jvectormap.css">
-  <link rel="stylesheet" href="/resources/vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.carousel.min.css">
-  <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.theme.default.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
-  <!-- Layout styles -->
   <link rel="stylesheet" href="/resources/css/app.css">
-  <!-- End layout styles -->
   <link rel="shortcut icon" href="/resources/images/favicon.png" />
 </head>
 
@@ -31,39 +18,62 @@
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
         </div>
+        @flashMessage('notificacao')
+        <div class="alert alert-{{ $message.type }}">
+          {{ $message.message }}
+        </div>
+        @end
 
-        <h3> cadastro de funcionario</h3>
-       
+        <div class="card">
+          <div class="card-body">
+            <h1 class="pt-0">Cadastro de Funcionário</h1>
+            <form id="form-funcionario" class="forms-sample" method="POST" action="{{ !funcionario ? route('funcionarios.store') : route('funcionarios.update', { id: funcionario.id }, { qs: { _method: 'PUT' } }) }}">
+              {{ csrfField() }}
+
+              <div class="form-group">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control" id="inputNome" value="{{ old('nome') || funcionario?.nome ||'' }}" name="nome" placeholder="Informe o nome">
+                @inputError('nome')
+                <span class="text-danger"> {{ $messages.join(', ') }} </span>
+                @end
+              </div>
+
+              <div class="form-group">
+                <label for="inputFuncao">Função</label>
+                <input type="text" class="form-control" id="inputFuncao" value="{{ old('funcao') || funcionario?.funcao ||'' }}" name="funcao" placeholder="Informe a função">
+                @inputError('funcao')
+                <span class="text-danger"> {{ $messages.join(', ') }} </span>
+                @end
+              </div>
+
+              <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+              <button class="btn btn-dark" type="button" onclick="resetForm()">Cancelar</button>
+            </form>
+          </div>
+        </div>
       </main>
     </div>
   </div>
 
-  <!-- container-scroller -->
-  <!-- plugins:js -->
   <script src="/resources/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
   <script src="/resources/vendors/chart.js/Chart.min.js"></script>
   <script src="/resources/vendors/progressbar.js/progressbar.min.js"></script>
   <script src="/resources/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="/resources/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
   <script src="/resources/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
   <script src="/resources/js/off-canvas.js"></script>
   <script src="/resources/js/hoverable-collapse.js"></script>
   <script src="/resources/js/misc.js"></script>
   <script src="/resources/js/settings.js"></script>
   <script src="/resources/js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="/resources/js/dashboard.js"></script>
-  <!-- End custom js for this page -->
-
+  <script>
+    function resetForm() {
+      document.getElementById('form-funcionario').reset();
+    }
+  </script>
 </body>
+
 </html>
