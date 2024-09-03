@@ -17,7 +17,7 @@
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12">
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         </div>
@@ -29,7 +29,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h1 class="pt-4">Cadastro de Cliente</h1>
+            <h1 class="pt-0">Cadastro de Cliente</h1>
             <form class="forms-sample" method="POST"
               action="{{ !cliente ? route('clientes.store') : route('clientes.update', { id: cliente.id }, { qs: { _method: 'PUT' } }) }}">
               {{ csrfField() }}

@@ -40,7 +40,7 @@
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12">
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 35px"> <!--Style adicionado para dar o espaço da mensagem de notificação-->
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
@@ -54,7 +54,7 @@
         <div class="card">
 
           <div class="card-body">
-            <h1 class="pt-4">Cadastrar Serviço</h1>
+            <h1 class="pt-0">Cadastrar Serviço</h1> <!--Alterei o valor de pt, para diminuir espaçamento (antigo: pt-4)-->
             <form class="forms-sample" method="POST"
               action="{{ !servico ? route('servicos.store') : route('servicos.update', { id: servico.id }, { qs: { _method: 'PUT' } }) }}">
 
