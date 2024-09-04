@@ -10,7 +10,7 @@ export default class OrdemServico extends BaseModel {
   declare id: number
 
   @column()
-  declare data: Date
+  declare dataOrdem: Date
 
   @column()
   declare clienteId: number

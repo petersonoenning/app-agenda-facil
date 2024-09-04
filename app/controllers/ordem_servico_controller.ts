@@ -30,6 +30,7 @@ export default class OrdemServicosController {
     const dados = request.all()
 
     const ordemServico = await OrdemServico.create({
+      dataOrdem: dados.dataOrdem,
       clienteId: dados.clienteId,
       servicoId: dados.servicoId,
       funcionarioId: dados.funcionarioId,
@@ -41,7 +42,7 @@ export default class OrdemServicosController {
         message: `Ordem de Serviço criada com sucesso!`,
       })
     }
-    return response.redirect().toRoute('ordemServicos.create')
+    return response.redirect().toRoute('ordem_servicos.create')
   }
 
   /**

@@ -32,14 +32,14 @@
             <form id="form-ordem-servico" class="forms-sample" method="POST"
               action="{{ !ordemServico ? route('ordem_servicos.store') : route('ordem_servicos.update', { id: ordemServico.id }, { qs: { _method: 'PUT' } }) }}">
               {{ csrfField() }}
-
+              
               <div class="form-group">
                 <label for="inputCliente">Cliente</label>
                 <select class="form-control" id="inputCliente" name="clienteId">
                   <option value="" disabled selected>Selecione o cliente</option>
-                  @foreach (clientes as cliente)
+                  @each (cliente in clientes)
                     <option value="{{ cliente.id }}" {{ ordemServico?.clienteId == cliente.id ? 'selected' : '' }}>{{ cliente.nome }}</option>
-                  @endforeach
+                  @end
                 </select>
                 @inputError('clienteId')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
@@ -50,9 +50,9 @@
                 <label for="inputServico">Serviço</label>
                 <select class="form-control" id="inputServico" name="servicoId">
                   <option value="" disabled selected>Selecione o serviço</option>
-                  @foreach (servicos as servico)
+                  @each (servico in servicos)
                     <option value="{{ servico.id }}" {{ ordemServico?.servicoId == servico.id ? 'selected' : '' }}>{{ servico.nome }}</option>
-                  @endforeach
+                  @end
                 </select>
                 @inputError('servicoId')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
@@ -63,9 +63,9 @@
                 <label for="inputFuncionario">Funcionário</label>
                 <select class="form-control" id="inputFuncionario" name="funcionarioId">
                   <option value="" disabled selected>Selecione o funcionário</option>
-                  @foreach (funcionarios as funcionario)
+                  @each (funcionario in funcionarios)
                     <option value="{{ funcionario.id }}" {{ ordemServico?.funcionarioId == funcionario.id ? 'selected' : '' }}>{{ funcionario.nome }}</option>
-                  @endforeach
+                  @end
                 </select>
                 @inputError('funcionarioId')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
@@ -74,7 +74,7 @@
 
               <div class="form-group">
                 <label for="inputData">Data</label>
-                <input type="date" class="form-control" id="inputData" name="data"
+                <input type="date" class="form-control" id="inputData" name="dataOrdem"
                   value="{{ old('data') || ordemServico?.data || '' }}">
                 @inputError('data')
                 <span class="text-danger"> {{ $messages.join(', ') }} </span>
