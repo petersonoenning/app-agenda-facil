@@ -54,7 +54,8 @@
                         <td>{{ ordemServico.cliente.nome }}</td>
                         <td>{{ ordemServico.servico.nome }}</td>
                         <td>{{ ordemServico.funcionario.nome }}</td>
-                        <td>{{ ordemServico.dataOrdem }}</td>
+                        <td>{{ new Date(ordemServico.dataOrdem).toLocaleDateString('pt-BR') }}</td>
+
                         <td style="display: flex;">
                           <a href="{{ route('ordem_servicos.edit', [ordemServico.id]) }}" class="btn-action-green mr-1">
                             <i class="mdi mdi-border-color"></i>
