@@ -10,7 +10,7 @@ export default class OrdemServicosController {
    */
   async index({ view }: HttpContext) {
     const ordemServicos = await OrdemServico.query().preload('cliente').preload('servico').preload('funcionario')
-    return view.render('pages/ordem_servico/consulta_ordem_servico', { ordemServicos })
+    return view.render('pages/ordem/consulta_ordemdeservico', { ordemServicos })
   }
 
   /**
@@ -86,7 +86,7 @@ export default class OrdemServicosController {
       })
     }
 
-    return response.redirect().toRoute('ordemServicos.create')
+    return response.redirect().toRoute('ordem_servicos.create')
   }
 
   /**
@@ -104,6 +104,6 @@ export default class OrdemServicosController {
       })
     }
 
-    return response.redirect().toRoute('ordemServicos.create')
+    return response.redirect().toRoute('ordem_servicos.create')
   }
 }
