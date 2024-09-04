@@ -17,12 +17,14 @@
   <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.carousel.min.css">
   <link rel="stylesheet" href="/resources/vendors/owl-carousel-2/owl.theme.default.min.css">
   <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
   <!-- Layout styles -->
   <link rel="stylesheet" href="/resources/css/app.css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="/resources/images/agenda_branco.png" />
+
+  <!-- Adicionando a fonte Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -31,12 +33,23 @@
   <div class="container-fluid">
     <div class="row">
       @include('partials/_sidebar')
-      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 80px;" >
+      <main role="main" class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-12" style="padding-top: 80px;">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1>Bem-Vindo(a) de volta!</h1>
         </div>
-        <h3>Conteúdo Exclusivo da Página</h3>
-        <p>Aqui você pode colocar o conteúdo exclusivo dessa página.</p>
+        <h3>As informações sobre seus trabalhos são simplificadas com a Agenda Fácil!</h3>
+        
+        <!-- Texto estilizado -->
+        <h3 class="tech-text">Vamos trabalhar!</h3>
+        
+        <!-- Adicione as imagens aqui -->
+        <div class="image-row">
+          <img src="/resources/images/2.png" alt="Imagem 1" class="custom-image">
+          <img src="/resources/images/1.png" alt="Imagem 2" class="custom-image">
+          <img src="/resources/images/3.png" alt="Imagem 3" class="custom-image">
+        </div>
+
+        <p></p>
       </main>
     </div>
   </div>

@@ -1,3 +1,26 @@
+
+.image-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.image-row .custom-image {
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Estilo para o texto "Vamos trabalhar!" */
+.tech-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700; /* Negrito */
+  color: #00d0ff; /* Verde tecnológico */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+  text-shadow: 0px 0px 5px #0073ff, 0px 0px 10px #2200ff; /* Sombra com brilho */
+}
+
 * {
   margin: 0;
   padding: 0;
