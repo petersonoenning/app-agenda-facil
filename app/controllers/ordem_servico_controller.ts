@@ -75,10 +75,11 @@ export default class OrdemServicosController {
       })
     }
 
-    const dados = request.all()
+    const dados = request.only(['dataOrdem', 'clienteId', 'servicoId', 'funcionarioId'])
 
+    
     await ordemServico?.merge(dados).save()
-
+  
     if (ordemServico?.$isPersisted) {
       session.flash('notificacao', {
         type: 'warning',
