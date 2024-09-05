@@ -1,4 +1,4 @@
-# IFRO ALIMENTA
+# AGENDA FÁCIL
 
 Projeto desenvolvido através do Framework AdonisJS. Requisito para conclusão da disciplina de Programação Web II - 2024/1 - CST Análise e Desenvolvimento de Sistemas (IFRO - Campus Ji-Paraná)
 
